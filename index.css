@@ -1,7 +1,25 @@
 /*
+ * Carrega a fonte "Roboto" do Google Fonts:
+ *    Referências:
+ *        https://fonts.google.com/specimen/Roboto
+ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*
+ * Carrega a biblioteca Normalize que força a padronização dos estilos entre os
+ * navegadores:
+ *    Referências:
+ *        https://github.com/necolas/normalize.css
+ *        https://cdnjs.com/libraries/normalize
+ */
+ @
+ 
+/*
  * Biblioteca de ícones:
  *     Referências:
  *        https://fontawesome.com/
  *        https://cdnjs.com/libraries/font-awesome  
  */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+
