@@ -32,10 +32,12 @@
 html,
 body,
 #wrap {
+    /* Sticky footer */
     position: relative;
+    width: 100%;
+
     padding: 0;
     margin: 0;
-    width: 100%;
     height: 100%;
 }
 
@@ -56,9 +58,27 @@ body {
     background-size: cover;
 }
 
+/* Formata links */
+a {
+    text-decoration: none;
+    color: steelblue;
+}
+
+a:hover {
+    color: orangered;
+}
+
+/* Limita o crescimento do conteúdo */
+#wrap {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Cabeçalho → header */
 #wrap>header {
-    background: rgb(201, 249, 201);
+    background: rgba(201, 249, 201, 0.85);
     display: flex;
     align-items: center;
 }
@@ -79,9 +99,58 @@ body {
 }
 
 /* Slogan */
-#wrap>header small {
+#wrap>header small, #wrap>footer small {
     display: block;
     font-size: 68%;
 }
 
-#wrap>nav {}
+#wrap>nav,
+#wrap>footer {
+    background-color: rgba(0, 69, 0, .9);
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px dotted rgb(210, 255, 210);
+    border-bottom: 1px dotted rgb(210, 255, 210);
+}
+
+#wrap>nav a {
+    color: rgb(210, 255, 210);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .2s;
+}
+
+#wrap>nav a:hover {
+    background: rgb(210, 255, 210);
+    color: rgb(0, 69, 0);
+}
+
+#wrap>nav a:first-child {
+    margin-right: auto;
+}
+
+#wrap>nav a i {
+    font-size: 2.5rem;
+}
+
+#wrap>nav a span {
+    padding-top: .5rem;
+}
+
+/* Rodapé */
+#wrap>footer {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#wrap>footer i {
+    font-size: 1.5rem;
+    padding: .25rem;
+}
+
+/* Conteúdo principal → main */
+#wrap>main {
+    flex-grow: 1;
+}
