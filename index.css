@@ -92,14 +92,15 @@ a:hover {
 
 /* Título */
 #wrap>header h1 {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     margin: 0;
     color: rgb(0, 58, 0);
     text-align: center;
 }
 
 /* Slogan */
-#wrap>header small, #wrap>footer small {
+#wrap>header small,
+#wrap>footer small {
     display: block;
     font-size: 68%;
 }
@@ -132,7 +133,7 @@ a:hover {
 }
 
 #wrap>nav a i {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 #wrap>nav a span {
@@ -147,10 +148,90 @@ a:hover {
 
 #wrap>footer i {
     font-size: 1.5rem;
+}
+
+#wrap>footer a {
+    color: rgb(210, 255, 210);
     padding: .25rem;
+}
+
+#wrap>footer a:hover {
+    background-color: rgb(210, 255, 210);
+    color: rgba(0, 69, 0, .9);
+}
+
+#wrap>footer div a:hover {
+    background-color: transparent;
+    color: rgb(210, 255, 210);
+}
+
+#wrap>footer div {
+    text-align: center;
+    color: rgb(210, 255, 210);
+    font-size: 90%;
+}
+
+#wrap>footer div small {
+    font-size: 85%;
 }
 
 /* Conteúdo principal → main */
 #wrap>main {
     flex-grow: 1;
+}
+
+#wrap>main article,
+#wrap>main aside {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#wrap>main aside {
+    background-color: rgba(210, 255, 210, .9);
+    border-top: 3px dotted green;
+}
+
+/* Ajustes para telas maiores */
+
+/* Menu principal à partir de 475px */
+@media screen and (min-width: 475px) {
+
+    #wrap>nav {
+        justify-content: center;
+    }
+
+    #wrap>nav a {
+        padding: 0.5rem 1rem;
+        flex-direction: row;
+    }
+
+    #wrap>nav a:first-child {
+        margin: 0;
+    }
+
+    #wrap>nav a i {
+        font-size: 1.2rem;
+    }
+
+    #wrap>nav a span {
+        padding-top: 0;
+        padding-left: .3rem;
+    }
+
+}
+
+/* Conteúdo à partir de 640px */
+@media screen and (min-width: 640px) {
+
+    #wrap>main {
+        display: flex;
+    }
+
+    #wrap>main aside {
+        border-top: none;
+        border-left: 3px dotted green;
+        min-width: 200px;
+        max-width: 200px;
+    }
+
 }
