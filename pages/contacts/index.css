@@ -1,0 +1,61 @@
+#contactForm {
+    display: block;
+    margin: auto;
+    max-width: 475px;
+}
+
+label {
+    display: block;
+    padding: 0 0 .3rem .3rem;
+}
+
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: .25rem;
+    border-radius: .3rem;
+}
+
+input,
+textarea {
+    padding: .3rem;
+    width: 100%;
+    border: 1px solid rgb(249, 122, 122);
+    border-bottom: 3px solid rgb(249, 122, 122);
+    background: rgb(255, 218, 218);
+}
+
+textarea {
+    resize: vertical;
+    height: 5rem;
+}
+
+button {
+    color: white;
+    background: linear-gradient(rgb(133, 197, 250), rgb(28, 64, 94));
+    border: none;
+    padding: .5rem 1rem;
+}
+
+/*
+ * Valida envio do formulário usando HTML e CSS
+ */
+
+input:valid,
+textarea:valid {
+    border: 1px solid green;
+    border-bottom: 3px solid green;
+    background-color: rgb(232, 240, 253);
+}
+
+#contactForm:invalid button {
+    background: linear-gradient(rgb(177, 177, 177), rgb(74, 74, 74));
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+#feedback {
+    display: none;
+}

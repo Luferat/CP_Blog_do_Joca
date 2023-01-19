@@ -40,6 +40,11 @@ function runApp() {
     // console.log("Blog IRS"); // Exibe uma mensagem no console do navegador.
 
     /**
+     * Carrega a página inicial quando o aplicativo iniciar.
+     */
+    loadPage('contacts');
+
+    /**
      * Monitora o evento 'click' no documento.
      * Se ocorrer um evento 'click' em um elemento <a>...</a>, executa o 
      * aplicativo "routerLink".
@@ -106,24 +111,81 @@ function routerLink() {
 }
 
 /**
- * Carrega a página indicada pela rota, lembrando que a página é composta de 
- * 3 partes: index.html, index.css e index.js. Esses documentos serão 
- * carregados dentro da tag <main> da index.html principal.
- */
+ * Aplicativo que carrega os componentes da rota solicitada.
+ **/
 function loadPage(route) {
 
+    /**
+     * Monta os links para os componente HTML, CSS e JavaScript da rota, onde:
+     *    page.html → componente HTML da rota;
+     *    page.css → componente CSS da rota;
+     *    page.js → componente JavaScript da rota.
+     * 
+     * Referências:
+     *  • https://www.w3schools.com/js/js_objects.asp   
+     *  • https://www.w3schools.com/js/js_string_templates.asp
+    **/
     let page = {
         html: `pages/${route}/index.html`,
         css: `pages/${route}/index.css`,
         js: `pages/${route}/index.js`
     }
 
-    console.log(page);
+    /**
+     * Obtém o componente HTML da rota.
+     * 
+     * OBS: carregamos o HTML na memória primeiro, para ter certeza que ele 
+     * existe e não vai dar erro 404.
+     * 
+     * Referências:
+     *  • https://www.w3schools.com/jquery/ajax_get.asp
+     */
+    $.get(page.html)
 
-    $.get(page.html).done(
-        function (data) {
-            $('main').html(data);
-        }
-    );
+        /**
+         * Quando estiver pronto...
+         **/
+        .done(
 
+            /**
+             * Armazena o código HTML obtido na variável 'data' e executa a função...
+             **/
+            function (data) {
+
+                /**
+                 * Escreve o link para as folhas de estilo da rota no elemento 
+                 * <link id="pageCSS"...> que fica no <head> de '/index.html'.
+                 **/
+                $('#pageCSS').attr('href', page.css);
+
+                /**
+                 * Carrega o conteúdo HTML da rota, que está armazenado em 'data',
+                 * na tag <main>...</main> de '/index.html'.
+                 * Referências:
+                 *  • https://www.w3schools.com/jquery/html_html.asp
+                 **/
+                $('main').html(data);
+
+                /**
+                 * Carrega o componente JavaScript da rota na memória e o executa.
+                 * Referências:
+                 *  • https://www.w3schools.com/jquery/ajax_getscript.asp
+                 **/
+                $.getScript(page.js);
+            }
+        );
+
+    /**
+     * Rola a tela para o início, útil para links no final da página.
+     * Referências:
+     *  • https://www.w3schools.com/jsref/met_win_scrollto.asp
+     **/
+    window.scrollTo(0, 0);
+
+    /**
+     * Atualiza URL da página com o endereço da rota:
+     * Referências:
+     *  • https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+     **/
+    // window.history.pushState({}, '', route);
 }
