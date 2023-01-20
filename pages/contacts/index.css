@@ -39,10 +39,7 @@ button {
     padding: .5rem 1rem;
 }
 
-/*
- * Valida envio do formulário usando HTML e CSS
- */
-
+/* Campos com preenchimento válido recebem os estilos abaixo */
 input:valid,
 textarea:valid {
     border: 1px solid green;
@@ -50,12 +47,14 @@ textarea:valid {
     background-color: rgb(232, 240, 253);
 }
 
+/* Se o formulário está inválido, desabilita o botão de envio */
 #contactForm:invalid button {
     background: linear-gradient(rgb(177, 177, 177), rgb(74, 74, 74));
     pointer-events: none;
     cursor: not-allowed;
 }
 
+/* Oculta a mensagem de feedback que só será mostrada quando o formulário for enviado */
 #feedback {
     display: none;
 }
